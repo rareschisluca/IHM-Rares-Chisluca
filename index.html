@@ -1,93 +1,748 @@
 <!DOCTYPE html>
-<html>
+<html lang="sv">
 
 <head>
     <meta charset="UTF-8">
-    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Rares Chisluca – Digital Marketing Specialist i Göteborg. Studerande på IHM Business School. Utforska min utbildning, tjänster inom SEO och sociala medier samt fullständigt CV.">
+    <title>Rares Chisluca | Digital Marketing Specialist · Göteborg</title>
+
+    <!-- Google Fonts för modern och läsbar typografi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <div>
-            <h1>Rares Chisluca</h1>
-            <p class="roll">Digital Marketing Specialist i Göteborg</p>
+    <!-- Tillgänglighet: Hoppa direkt till innehållet -->
+    <a href="#huvudinnehall" class="hoppa-till-innehall">Hoppa till huvudinnehållet</a>
+
+    <!-- Sticky Header & Navigering med aktiv indikator -->
+    <header class="sidhuvud" id="sidhuvud">
+        <div class="behallare sidhuvud-innehall">
+            <a href="#start" class="varumarke" aria-label="Rares Chisluca – Gå till startsidan">
+                <span class="logo-symbol">RC</span>
+                <span class="logo-text">
+                    <span class="logo-namn">Rares Chisluca</span>
+                    <span class="logo-titel">Digital Marketing Specialist</span>
+                </span>
+            </a>
+
+            <!-- Hamburgarknapp för mobila skärmar -->
+            <button class="mobilmeny-knapp" id="mobilmeny-knapp" aria-expanded="false" aria-controls="huvudnav"
+                aria-label="Öppna navigationsmeny">
+                <span class="hamburgare-linje"></span>
+                <span class="hamburgare-linje"></span>
+                <span class="hamburgare-linje"></span>
+            </button>
+
+            <!-- Huvudnavigering -->
+            <nav class="huvudnav" id="huvudnav" aria-label="Huvudmeny">
+                <ul class="nav-lista">
+                    <li><a href="#om" class="nav-lank">Om mig</a></li>
+                    <li><a href="#tjanster" class="nav-lank">Vad jag gör</a></li>
+                    <li><a href="#utbildning" class="nav-lank">Min utbildning</a></li>
+                    <li><a href="cv-hemsida/index.html" target="_blank" rel="noopener" class="nav-lank nav-lank-accent"
+                            title="Öppna mitt CV">Mitt CV ↗</a></li>
+                    <li><a href="#kontakt" class="nav-lank">Kontakt</a></li>
+                </ul>
+
+                <div class="nav-atgarder">
+                    <!-- Temaväxlare -->
+                    <button id="tema" class="tema-knapp" aria-label="Växla mellan mörkt och ljust läge">
+                        <span class="tema-ikon" aria-hidden="true">🌓</span>
+                        <span class="tema-text">Mörkt läge</span>
+                    </button>
+                    <!-- Snabbknapp för kontakt -->
+                    <a href="#kontakt" class="knapp knapp-huvudmeny">Hör av dig</a>
+                </div>
+            </nav>
         </div>
-        <nav aria-label="Huvudmeny">
-            <ul>
-                <li><a href="#om">Om mig</a></li>
-                <li><a href="#tjanster">Vad jag gör</a></li>
-                <li><a href="#projekt">Projekt</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>Jag hjälper små företag att bli hittade och valda online</h2>
-            <p>Sök, sociala medier och e-post som hänger ihop – så att rätt kunder hittar dig och väljer dig.</p>
-            <a href="#kontakt">Boka ett samtal</a>
+    <main id="huvudinnehall">
+        <!-- ============================================================
+             1 · FÖRSTA SKÄRMVYN / HERO: INTRO, HEADER-BILD OCH SYNLIGA KNAPPAR
+             ============================================================ -->
+        <section class="hero-sektion" id="start" aria-labelledby="hero-titel">
+            <div class="behallare hero-innehall">
+                <!-- Vänster kolumn: Introduktion & Primära knappar -->
+                <div class="hero-textkolumn">
+                    <div class="plats-badge">
+                        <span class="plats-prick" aria-hidden="true"></span>
+                        <span>Göteborg · IHM Business School</span>
+                    </div>
+
+                    <h1 id="hero-titel" class="hero-namn">Rares Chisluca</h1>
+                    <p class="hero-roll">Digital Marketing Specialist</p>
+
+                    <h2 class="hero-lofte">Jag hjälper små företag att bli hittade och valda online</h2>
+
+                    <p class="hero-ingress">
+                        Sök, sociala medier och e-post som hänger ihop – så att rätt kunder hittar dig och väljer dig.
+                        Jag studerar på IHM Business School i Göteborg och brinner för att ge lokala företag mätbar
+                        digital synlighet.
+                    </p>
+
+                    <!-- SYNLIGA KNAPPAR TILL UTBILDNING, CV OCH KONTAKT -->
+                    <div class="hero-knappgrupp">
+                        <a href="#utbildning" class="knapp knapp-primar">
+                            <span class="knapp-ikon" aria-hidden="true">🎓</span>
+                            <span>Se mina kurser</span>
+                            <span class="pil-ned" aria-hidden="true">↓</span>
+                        </a>
+                        <a href="cv-hemsida/index.html" target="_blank" rel="noopener" class="knapp knapp-sekundar"
+                            title="Öppna mitt CV">
+                            <span class="knapp-ikon" aria-hidden="true">📄</span>
+                            <span>Mitt CV</span>
+                            <span class="extern-ikon" aria-hidden="true">↗</span>
+                        </a>
+                        <a href="#kontakt" class="knapp knapp-tredje">
+                            <span class="knapp-ikon" aria-hidden="true">✉️</span>
+                            <span>Kontakta mig</span>
+                        </a>
+                    </div>
+
+                    <!-- Snabbstatus & Kärnfokus -->
+                    <div class="hero-snabbfakta-chips">
+                        <span class="chip">📍 Göteborg, Sverige</span>
+                        <span class="chip">🎓 IHM Business School (2026–2028)</span>
+                        <span class="chip">💼 3 års drift- &amp; butikserfarenhet</span>
+                        <span class="chip">✨ Svarar snabbt via e-post</span>
+                    </div>
+                </div>
+
+                <aside class="lia-kort" aria-labelledby="lia-titel">
+                    <p class="lia-etikett">LIA · Praktik 2027</p>
+                    <h2 id="lia-titel">Jag söker LIA inom marknadsföring</h2>
+                    <p class="lia-period"><time datetime="2027-03-15">15 mars</time> – <time datetime="2027-06-06">6
+                            juni 2027</time></p>
+                    <p class="lia-text">Jag studerar till Digital Marketing Specialist på IHM Business School i
+                        Göteborg.</p>
+                    <a href="#kontakt" class="lia-kontakt">Kontakta mig om LIA <span aria-hidden="true">↗</span></a>
+                </aside>
+            </div>
         </section>
 
-        <section id="om">
-            <h2>Om mig</h2>
-            <img src="img/profil.jpg" alt="Rares Chisluca" width="645" height="1146,5">
-
-            <p>Jag utbildar mig till Digital Marketing Specialist på IHM Business School och har ett särskilt intresse
-                för lokala företag.</p>
-            <p>Innan utbildningen arbetade jag i butik och såg hur mycket en bra Google-profil och ett tydligt
-                erbjudande betyder för små företag. Nu lär jag mig verktygen för att hjälpa dem på riktigt.</p>
+        <!-- ============================================================
+             2 · SNABBÖVERSIKT / STATISTIKLISTA: LÄTT ATT HITTA INFO
+             ============================================================ -->
+        <section class="snabb-oversikt-bar" aria-label="Snabböversikt">
+            <div class="behallare">
+                <div class="snabb-oversikt-rutnat">
+                    <div class="snabb-punkt">
+                        <span class="snabb-ikon">🔍</span>
+                        <div>
+                            <strong>Lokal SEO &amp; Sök</strong>
+                            <p>Optimering av Google-profil &amp; lokala sökord</p>
+                        </div>
+                    </div>
+                    <div class="snabb-punkt">
+                        <span class="snabb-ikon">📱</span>
+                        <div>
+                            <strong>Sociala medier</strong>
+                            <p>Innehållsplanering, Reels &amp; engagemang</p>
+                        </div>
+                    </div>
+                    <div class="snabb-punkt">
+                        <span class="snabb-ikon">✉️</span>
+                        <div>
+                            <strong>E-post &amp; Automation</strong>
+                            <p>Välkomstflöden och konverterande utskick</p>
+                        </div>
+                    </div>
+                    <div class="snabb-punkt">
+                        <span class="snabb-ikon">⚡</span>
+                        <div>
+                            <strong>Strukturerat arbete</strong>
+                            <p>Noggrannhet, uppföljning och mätbara resultat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="tjanster">
-            <h2>Vad jag gör</h2>
-            <ul>
-                <li>
-                    <h3>Synas i sök</h3>
-                    <p>Sökordsanalys, texter och en Google-profil som lockar till klick.</p>
-                </li>
-                <li>
-                    <h3>Sociala medier</h3>
-                    <p>Innehållsplan och inlägg som passar din målgrupp och din tid.</p>
-                </li>
-                <li>
-                    <h3>E-post som säljer</h3>
-                    <p>Nyhetsbrev och enkla automatiska flöden som följer upp nya kunder.</p>
-                </li>
-            </ul>
+        <!-- ============================================================
+             3 · OM MIG: BAKGRUND, PROFILBILD OCH KOMPETENSER
+             ============================================================ -->
+        <section class="sektion om-sektion" id="om" aria-labelledby="om-titel">
+            <div class="behallare">
+                <div class="om-grid">
+                    <!-- Vänster: Profilbild på Rares Chisluca med geometriska accenter från header.png -->
+                    <div class="om-bildkolumn">
+                        <div class="om-portratt-ram">
+                            <div class="om-geo-block-gul" aria-hidden="true"></div>
+                            <div class="om-geo-cirkel-bla" aria-hidden="true"></div>
+                            <div class="om-geo-punkter" aria-hidden="true">
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="om-geo-linjer" aria-hidden="true">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <img src="img/profil.jpg" alt="Porträtt av Rares Chisluca i Göteborg" width="665"
+                                height="1182" class="om-profilbild" loading="lazy">
+                            <div class="profil-bricka">
+                                <div>
+                                    <span class="profil-bricka-namn">Rares Chisluca</span>
+                                    <span class="profil-bricka-titel">Digital Marketing Specialist</span>
+                                </div>
+                                <span class="profil-bricka-stad">📍 Göteborg</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Höger: Berättelse, bakgrund och kärnkompetenser -->
+                    <div class="om-textkolumn">
+                        <span class="sektions-etikett">01 · Presentation</span>
+                        <h2 id="om-titel" class="sektions-rubrik">Om mig</h2>
+
+                        <div class="brodtext">
+                            <p class="ledtext">
+                                Jag utbildar mig till Digital Marketing Specialist på IHM Business School i Göteborg och
+                                har ett särskilt intresse för lokala företag.
+                            </p>
+                            <p>
+                                Innan utbildningen arbetade jag i butik och inom strukturerad drift och såg hur mycket
+                                en bra Google-profil och ett tydligt erbjudande betyder för små företag. Nu lär jag mig
+                                verktygen för att hjälpa dem på riktigt.
+                            </p>
+                            <p>
+                                Min tidigare arbetslivserfarenhet har lärt mig att arbeta strukturerat, noggrant och
+                                ansvarsfullt. Jag är van vid att samarbeta med andra, samtidigt som jag kan ta eget
+                                ansvar och snabbt lära mig nya arbetsuppgifter och digitala plattformar.
+                            </p>
+                        </div>
+
+                        <!-- Färdigheter & Verktyg -->
+                        <div class="kompetens-omrade">
+                            <h3 class="del-rubrik">Områden jag lär mig inom utbildningen:</h3>
+                            <ul class="taggar-lista" aria-label="Digitala marknadsföringskompetenser">
+                                <li>SEO &amp; SEM</li>
+                                <li>Google Ads</li>
+                                <li>Sociala medier</li>
+                                <li>Content marketing</li>
+                                <li>Digital analys</li>
+                                <li>Marketing automation</li>
+                                <li>Konverteringsoptimering</li>
+                                <li>AI &amp; digital strategi</li>
+                            </ul>
+                        </div>
+
+                        <!-- Språk och personliga styrkor -->
+                        <div class="snabb-fakta-kort">
+                            <div class="fakta-kolumn">
+                                <strong>🗣️ Språk:</strong>
+                                <span>Rumänska (modersmål), Svenska (flytande), Engelska (flytande)</span>
+                            </div>
+                            <div class="fakta-kolumn">
+                                <strong>🚗 Övrigt:</strong>
+                                <span>B-körkort (manuell) · Boende i Göteborg</span>
+                            </div>
+                        </div>
+
+                        <div class="om-lankar-rad">
+                            <a href="#cv" class="knapp knapp-sekundar">
+                                <span>Se mitt CV nedan</span>
+                                <span aria-hidden="true">↓</span>
+                            </a>
+                            <a href="cv-hemsida/index.html" target="_blank" rel="noopener" class="knapp knapp-tredje"
+                                title="Öppna mitt CVen i ny flik">
+                                <span>Öppna mitt CV ↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="projekt">
-            <h2>Projekt</h2>
-            <article>
-                <img src="img/projekt-1.jpg" alt="Skärmbild av ett kafés Google-profil med betyg och öppettider"
-                    width="600" height="400">
-                <h3>Lokal synlighet för ett kafé</h3>
-                <p>Kursuppgift: plan för Google-profil och sökord för ett fiktivt kafé i Göteborg.</p>
-            </article>
-            <article>
-                <img src="img/projekt-2.jpg" alt="Innehållskalender för en månad med inlägg markerade per kanal"
-                    width="600" height="400">
-                <h3>Innehållsplan för en månad</h3>
-                <p>Kursuppgift: pelare, kanaler och tolv inlägg för en hållbar kaffeprenumeration.</p>
-            </article>
-            <article>
-                <img src="img/projekt-3.jpg" alt="Den här webbplatsen i mobilvy" width="600" height="400">
-                <h3>Den här sajten</h3>
-                <p>Handkodad med HTML, CSS och JavaScript, med AI som kodstöd.</p>
-            </article>
+        <!-- ============================================================
+             4 · VAD JAG GÖR / DET JAG PLUGGAR TILL: 10 FOKUSOMRÅDEN
+             ============================================================ -->
+        <section class="sektion tjanster-sektion" id="tjanster" aria-labelledby="tjanster-titel">
+            <div class="behallare">
+                <div class="sektions-huvud">
+                    <span class="sektions-etikett">02 · Det jag pluggar till</span>
+                    <h2 id="tjanster-titel" class="sektions-rubrik">Vad jag gör</h2>
+                    <p class="sektions-ingress">
+                        Under min utbildning till <strong>Digital Marketing Specialist</strong> på IHM Business School i
+                        Göteborg fördjupar jag mig i tio centrala områden inom modern digital marknadsföring:
+                    </p>
+                </div>
+
+                <div class="tjanster-rutnat">
+                    <!-- 1. SEO -->
+                    <article class="tjanstekort">
+                        <div class="tjanste-topp">
+                            <div class="tjanste-ikon" aria-hidden="true">🔍</div>
+                            <span class="tjanste-nummer">01</span>
+                        </div>
+                        <h3 class="tjanste-titel">SEO</h3>
+                        <p class="tjanste-beskrivning">
+                            Sökmotoroptimering med fokus på lokal synlighet, teknisk grund och sökordsanalys så att rätt
+                            kunder hittar företaget organiskt.
+                        </p>
+                        <div class="tjanste-taggar">
+                            <span>Sökordsanalys</span>
+                            <span>On-page SEO</span>
+                            <span>Google Profil</span>
+                        </div>
+                    </article>
+
+                    <!-- 2. SEM -->
+                    <article class="tjanstekort">
+                        <div class="tjanste-topp">
+                            <div class="tjanste-ikon" aria-hidden="true">🎯</div>
+                            <span class="tjanste-nummer">02</span>
+                        </div>
+                        <h3 class="tjanste-titel">SEM</h3>
+                        <p class="tjanste-beskrivning">
+                            Sökmotormarknadsföring och målinriktad betald synlighet i sökmotorer för att fånga kunder
+                            med hög köpintention.
+                        </p>
+                        <div class="tjanste-taggar">
+                            <span>Sökordsbudgivning</span>
+                            <span>Relevans</span>
+                            <span>Kvalitetsresultat</span>
+                        </div>
+                    </article>
+
+                    <!-- 3. Google Ads -->
+                    <article class="tjanstekort">
+                        <div class="tjanste-topp">
+                            <div class="tjanste-ikon" aria-hidden="true">📈</div>
+                            <span class="tjanste-nummer">03</span>
+                        </div>
+                        <h3 class="tjanste-titel">Google Ads</h3>
+                        <p class="tjanste-beskrivning">
+                            Skapande och löpande optimering av sök- och displaykampanjer, Performance Max samt budget-
+                            och konverteringsstyrning.
+                        </p>
+                        <div class="tjanste-taggar">
+                            <span>Sökkampanjer</span>
+                            <span>PMax</span>
+                            <span>CTR &amp; CPC</span>
+                        </div>
+                    </article>
+
+                    <!-- 4. Sociala medier -->
+                    <article class="tjanstekort">
+                        <div class="tjanste-topp">
+                            <div class="tjanste-ikon" aria-hidden="true">📱</div>
+                            <span class="tjanste-nummer">04</span>
+                        </div>
+                        <h3 class="tjanste-titel">Sociala medier</h3>
+                        <p class="tjanste-beskrivning">
+                            Strategisk närvaro och planering på Instagram, LinkedIn och andra plattformar för att bygga
+                            relationer och engagemang.
+                        </p>
+                        <div class="tjanste-taggar">
+                            <span>Innehållskalender</span>
+                            <span>Kanalstrategi</span>
+                            <span>Reels &amp; Video</span>
+                        </div>
+                    </article>
+
+                    <!-- 5. Content marketing -->
+                    <article class="tjanstekort">
+                        <div class="tjanste-topp">
+                            <div class="tjanste-ikon" aria-hidden="true">✍️</div>
+                            <span class="tjanste-nummer">05</span>
+                        </div>
+                        <h3 class="tjanste-titel">Content marketing</h3>
+                        <p class="tjanste-beskrivning">
+                            Värdeskapande texter, copywriting och visuella format anpassade efter målgruppens behov och
+                            olika faser i kundresan.
+                        </p>
+                        <div class="tjanste-taggar">
+                            <span>Copywriting</span>
+                            <span>Storytelling</span>
+                            <span>Innehållsformat</span>
+                        </div>
+                    </article>
+
+                    <!-- 6. Digital analys -->
+                    <article class="tjanstekort">
+                        <div class="tjanste-topp">
+                            <div class="tjanste-ikon" aria-hidden="true">📊</div>
+                            <span class="tjanste-nummer">06</span>
+                        </div>
+                        <h3 class="tjanste-titel">Digital analys</h3>
+                        <p class="tjanste-beskrivning">
+                            Mätning, datainsamling och tolkning med verktyg som Google Analytics 4 (GA4) för att fatta
+                            välgrundade datadrivna beslut.
+                        </p>
+                        <div class="tjanste-taggar">
+                            <span>Google Analytics 4</span>
+                            <span>KPI:er</span>
+                            <span>Datainsikter</span>
+                        </div>
+                    </article>
+
+                    <!-- 7. Marketing automation -->
+                    <article class="tjanstekort">
+                        <div class="tjanste-topp">
+                            <div class="tjanste-ikon" aria-hidden="true">⚙️</div>
+                            <span class="tjanste-nummer">07</span>
+                        </div>
+                        <h3 class="tjanste-titel">Marketing automation</h3>
+                        <p class="tjanste-beskrivning">
+                            Automatiserade kundresor, välkomstsekvenser och segmenterade e-postflöden som underhåller
+                            och vårdar potentiella kunder.
+                        </p>
+                        <div class="tjanste-taggar">
+                            <span>E-postflöden</span>
+                            <span>Segmentering</span>
+                            <span>Lead nurturing</span>
+                        </div>
+                    </article>
+
+                    <!-- 8. Konverteringsoptimering -->
+                    <article class="tjanstekort">
+                        <div class="tjanste-topp">
+                            <div class="tjanste-ikon" aria-hidden="true">🚀</div>
+                            <span class="tjanste-nummer">08</span>
+                        </div>
+                        <h3 class="tjanste-titel">Konverteringsoptimering</h3>
+                        <p class="tjanste-beskrivning">
+                            Optimering av webbplatser och landningssidor (CRO) för att minska friktion och få fler
+                            besökare att ta nästa steg.
+                        </p>
+                        <div class="tjanste-taggar">
+                            <span>CRO</span>
+                            <span>Landningssidor</span>
+                            <span>CTA-optimering</span>
+                        </div>
+                    </article>
+
+                    <!-- 9. AI inom marknadsföring -->
+                    <article class="tjanstekort">
+                        <div class="tjanste-topp">
+                            <div class="tjanste-ikon" aria-hidden="true">🤖</div>
+                            <span class="tjanste-nummer">09</span>
+                        </div>
+                        <h3 class="tjanste-titel">AI</h3>
+                        <p class="tjanste-beskrivning">
+                            Praktisk tillämpning av generativ AI och prompt engineering för smartare
+                            innehållsproduktion, idégenerering och analysstöd.
+                        </p>
+                        <div class="tjanste-taggar">
+                            <span>Generativ AI</span>
+                            <span>Prompting</span>
+                            <span>Effektivisering</span>
+                        </div>
+                    </article>
+
+                    <!-- 10. Digital strategi -->
+                    <article class="tjanstekort">
+                        <div class="tjanste-topp">
+                            <div class="tjanste-ikon" aria-hidden="true">🧭</div>
+                            <span class="tjanste-nummer">10</span>
+                        </div>
+                        <h3 class="tjanste-titel">Digital strategi</h3>
+                        <p class="tjanste-beskrivning">
+                            Helhetssyn där alla digitala kanaler samverkar mot tydliga affärsmål för att skapa mätbar
+                            tillväxt och långsiktigt värde.
+                        </p>
+                        <div class="tjanste-taggar">
+                            <span>Målgruppsanalys</span>
+                            <span>Kanalval</span>
+                            <span>Affärsnytta</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
 
-        <section id="kontakt">
-            <h2>Kontakt</h2>
-            <p>Vill du veta mer? Mejla mig eller hör av dig på LinkedIn.</p>
-            <p><a href="mailto:rares0309@yahoo.com">rares0309@yahoo.com</a></p>
-            <p><a href="https://www.linkedin.com/" target="_blank" rel="noopener">Rares Chisluca på LinkedIn</a></p>
+        <!-- ============================================================
+             5 · MIN UTBILDNING PÅ IHM: DIGITAL MARKETING SPECIALIST
+             ============================================================ -->
+        <section class="sektion utbildning-sektion" id="utbildning" aria-labelledby="utbildning-titel">
+            <div class="behallare">
+                <div class="sektions-huvud sektions-huvud-utbildning">
+                    <div class="sektions-huvud-flex">
+                        <div>
+                            <span class="sektions-etikett">03 · IHM Business School</span>
+                            <h2 id="utbildning-titel" class="sektions-rubrik">Min utbildning på IHM</h2>
+                            <p class="sektions-ingress">
+                                På yrkeshögskoleutbildningen <strong>Digital Marketing Specialist</strong> vid IHM
+                                Business School i Göteborg fördjupar jag mig i praktiska och strategiska metoder för att
+                                driva digital tillväxt och mätbar synlighet online.
+                            </p>
+                        </div>
+                        <div class="ihm-badge-ram">
+                            <span class="ihm-status-badge">🎓 Pågående utbildning</span>
+                            <span class="ihm-ar-badge">2026 – 2028 · Göteborg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="utbildning-rutnat kurslista" id="kurser-rutnat">
+                    <li class="kurs-kort">
+                        <h3 class="kurs-rubrik">SEO</h3>
+                        <p class="kurs-beskrivning">Jag lär mig att göra hemsidor mer synliga i sökmotorer.</p>
+                    </li>
+                    <li class="kurs-kort">
+                        <h3 class="kurs-rubrik">SEM</h3>
+                        <p class="kurs-beskrivning">Jag lär mig att marknadsföra företag genom betald sökannonsering.
+                        </p>
+                    </li>
+                    <li class="kurs-kort">
+                        <h3 class="kurs-rubrik">Google Ads</h3>
+                        <p class="kurs-beskrivning">Jag lär mig att skapa, följa upp och optimera annonser.</p>
+                    </li>
+                    <li class="kurs-kort">
+                        <h3 class="kurs-rubrik">Sociala medier</h3>
+                        <p class="kurs-beskrivning">Jag lär mig att skapa innehåll som engagerar rätt målgrupp.</p>
+                    </li>
+                    <li class="kurs-kort">
+                        <h3 class="kurs-rubrik">Content marketing</h3>
+                        <p class="kurs-beskrivning">Jag lär mig att skapa värdefullt innehåll som bygger förtroende.</p>
+                    </li>
+                    <li class="kurs-kort">
+                        <h3 class="kurs-rubrik">Digital analys</h3>
+                        <p class="kurs-beskrivning">Jag lär mig att analysera data och förbättra marknadsföringen.</p>
+                    </li>
+                    <li class="kurs-kort">
+                        <h3 class="kurs-rubrik">Marketing automation</h3>
+                        <p class="kurs-beskrivning">Jag lär mig att automatisera kommunikation genom kundresan.</p>
+                    </li>
+                    <li class="kurs-kort">
+                        <h3 class="kurs-rubrik">Konverteringsoptimering</h3>
+                        <p class="kurs-beskrivning">Jag lär mig att få fler besökare att bli kunder.</p>
+                    </li>
+                    <li class="kurs-kort">
+                        <h3 class="kurs-rubrik">AI</h3>
+                        <p class="kurs-beskrivning">Jag lär mig att använda AI i digital marknadsföring.</p>
+                    </li>
+                    <li class="kurs-kort">
+                        <h3 class="kurs-rubrik">Digital strategi</h3>
+                        <p class="kurs-beskrivning">Jag lär mig att planera digital marknadsföring utifrån företagets
+                            mål.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             6 · MITT CV & ERFARENHET: INTEGRERAT, TYDLIGT OCH LÄTTILLGÄNGLIGT
+             ============================================================ -->
+        <!-- ============================================================
+             6 · MITT CV & ERFARENHET: DET OFFICIELLA CV:T MED DIREKTLÄNK
+             ============================================================ -->
+        <section class="sektion cv-sektion" id="cv" aria-labelledby="cv-titel">
+            <div class="behallare">
+                <div class="sektions-huvud">
+                    <span class="sektions-etikett">04 · Curriculum Vitae</span>
+                    <h2 id="cv-titel" class="sektions-rubrik">Mitt officiella CV</h2>
+                    <p class="sektions-ingress">
+                        Läs om min utbildning, arbetslivserfarenhet och mina kunskaper här eller på min CV-sida.
+                    </p>
+                </div>
+
+                <div class="cv-visning-container">
+                    <!-- Höger: Handlingsknappar och strukturerad meritförteckning -->
+                    <div class="cv-info-kolumn">
+                        <div class="cv-snabb-panel">
+                            <div class="cv-panel-header">
+                                <span class="cv-status-tagg">Officiellt dokument</span>
+                                <h3 class="cv-panel-namn">Rares Chisluca</h3>
+                                <p class="cv-panel-roll">Digital Marketing Specialist</p>
+                            </div>
+
+                            <p class="cv-panel-beskrivning">
+                                Komplett meritförteckning med pågående utbildning vid IHM Business School i Göteborg, 3
+                                års heltidsarbete inom läkemedelshantering på APOEX, parallell industriell städning på
+                                VARTEX, kompetenser, språkkunskaper och kontaktvägar.
+                            </p>
+
+                            <div class="cv-knapp-grupp">
+                                <a href="cv-hemsida/index.html" class="knapp knapp-primar knapp-fullbredd">Öppna mitt CV
+                                    ↗</a>
+                            </div>
+                        </div>
+
+                        <!-- Snabböversikt direkt från CV:t -->
+                        <div class="cv-fakta-grid">
+                            <div class="cv-fakta-post">
+                                <strong>💼 Arbetslivserfarenhet:</strong>
+                                <p>• <strong>Driftassistent APOEX (Heltid)</strong> · Sep 2022 – sep 2025<br>
+                                    • <strong>Industristädning VARTEX (Vikarie)</strong> · Sep 2022 – sep 2025</p>
+                            </div>
+                            <div class="cv-fakta-post">
+                                <strong>🎓 Utbildning:</strong>
+                                <p>• <strong>Digital Marketing Specialist</strong> · IHM Business School (2026–2028,
+                                    pågående)<br>
+                                    • <strong>Vård- och omsorg</strong> · Söderportgymnasiet (2019–2022)</p>
+                            </div>
+                            <div class="cv-fakta-post">
+                                <strong>⚡ Kompetenser:</strong>
+                                <p>SEO &amp; SEM, Google Ads, Sociala medier, Content marketing, Digital analys,
+                                    Automation, Konverteringsoptimering.</p>
+                            </div>
+                            <div class="cv-fakta-post">
+                                <strong>🗣️ Språk &amp; Övrigt:</strong>
+                                <p>Rumänska (modersmål), Svenska (flytande), Engelska (flytande) · B-körkort (manuell)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             7 · KONTAKT: DIREKTUPPGIFTER, E-POSTKOPIERING & FORMULÄR
+             ============================================================ -->
+        <section class="sektion kontakt-sektion" id="kontakt" aria-labelledby="kontakt-titel">
+            <div class="behallare">
+                <div class="sektions-huvud">
+                    <span class="sektions-etikett">05 · Ta kontakt</span>
+                    <h2 id="kontakt-titel" class="sektions-rubrik">Låt oss höras</h2>
+                    <p class="sektions-ingress">
+                        Vill du veta mer, diskutera ett projekt eller prata om en praktikplats? Hör gärna av dig direkt!
+                    </p>
+                </div>
+
+                <div class="kontakt-grid">
+                    <!-- Vänster: Kontaktuppgifter med 1-klick-kopiering -->
+                    <div class="kontakt-info-kort">
+                        <h3 class="kontakt-del-rubrik">Kontaktuppgifter</h3>
+                        <p class="kontakt-intro">
+                            Jag är snabbast att nå via e-post och tar gärna en kaffe i Göteborg eller ett
+                            digitalt möte.
+                        </p>
+
+                        <div class="kontakt-uppgifter-lista">
+                            <!-- E-post -->
+                            <div class="kontakt-rad">
+                                <div class="kontakt-rad-ikon" aria-hidden="true">✉️</div>
+                                <div class="kontakt-rad-text">
+                                    <span class="kontakt-rad-etikett">E-post</span>
+                                    <div class="epost-kopiera-wrapper">
+                                        <a href="mailto:rares0309@yahoo.com" class="kontakt-lank"
+                                            id="epost-lank">rares0309@yahoo.com</a>
+                                        <button type="button" class="kopiera-knapp" id="kopiera-epost"
+                                            title="Kopiera e-postadress" aria-label="Kopiera e-postadress">
+                                            Kopiera
+                                        </button>
+                                    </div>
+                                    <span class="kopiera-status" id="kopiera-status" aria-live="polite"></span>
+                                </div>
+                            </div>
+
+                            <!-- LinkedIn -->
+                            <div class="kontakt-rad">
+                                <div class="kontakt-rad-ikon" aria-hidden="true">💼</div>
+                                <div class="kontakt-rad-text">
+                                    <span class="kontakt-rad-etikett">LinkedIn</span>
+                                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                                        class="kontakt-lank">
+                                        Rares Chisluca på LinkedIn <span class="extern-ikon" aria-hidden="true">↗</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Plats -->
+                            <div class="kontakt-rad">
+                                <div class="kontakt-rad-ikon" aria-hidden="true">📍</div>
+                                <div class="kontakt-rad-text">
+                                    <span class="kontakt-rad-etikett">Ort</span>
+                                    <span class="kontakt-vanlig-text">Göteborg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Snabb action bar -->
+                        <div class="kontakt-snabb-knappar">
+                            <a href="mailto:rares0309@yahoo.com?subject=Kontakt%20fr%C3%A5n%20hemsidan"
+                                class="knapp knapp-primar">
+                                <span>Öppna e-post direkt</span>
+                                <span aria-hidden="true">✉</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Höger: Enkelt och funktionellt kontaktformulär -->
+                    <div class="kontakt-formular-kort">
+                        <h3 class="kontakt-del-rubrik">Skicka ett meddelande</h3>
+                        <form id="kontakt-formular" class="kontakt-formular" action="mailto:rares0309@yahoo.com"
+                            method="GET" enctype="text/plain">
+                            <div class="formular-grupp">
+                                <label for="namn">Ditt namn <span class="krav">*</span></label>
+                                <input type="text" id="namn" name="namn" required placeholder="t.ex. Anna Lindqvist">
+                            </div>
+
+                            <div class="formular-grupp">
+                                <label for="epost">Din e-postadress <span class="krav">*</span></label>
+                                <input type="email" id="epost" name="epost" required placeholder="anna@foretag.se">
+                            </div>
+
+                            <div class="formular-grupp">
+                                <label for="amne">Vad gäller det?</label>
+                                <select id="amne" name="amne" class="formular-val">
+                                    <option value="Allmän fråga">Allmän fråga / Dialog</option>
+                                    <option value="Lokal SEO & Google">Lokal SEO &amp; Google-profil</option>
+                                    <option value="Sociala medier">Sociala medier &amp; Content</option>
+                                    <option value="E-postmarknadsföring">E-postmarknadsföring</option>
+                                    <option value="Praktik / Samarbete">Praktik / Samarbete</option>
+                                </select>
+                            </div>
+
+                            <div class="formular-grupp">
+                                <label for="meddelande">Meddelande <span class="krav">*</span></label>
+                                <textarea id="meddelande" name="meddelande" rows="4" required
+                                    placeholder="Berätta kort om ditt företag eller vad du vill ha hjälp med..."></textarea>
+                            </div>
+
+                            <button type="submit" class="knapp knapp-primar knapp-fullbredd">
+                                <span>Skicka meddelande</span>
+                                <span aria-hidden="true">↗</span>
+                            </button>
+                            <p class="formular-hjalp">Formuläret öppnar ditt e-postprogram förberett med ditt meddelande
+                                till rares0309@yahoo.com.</p>
+                            <div id="formular-status" class="formular-status" aria-live="polite"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>© 2026 Rares Chisluca · Byggd för hand med HTML, CSS och JavaScript</p>
+    <!-- Flytande Till-toppen knapp som visas vid scroll -->
+    <button id="till-toppen-knapp" class="till-toppen-flytande" aria-label="Tillbaka till toppen" title="Till toppen">
+        ↑
+    </button>
+
+    <!-- Sidfot -->
+    <footer class="sidfot">
+        <div class="behallare sidfot-innehall">
+            <div class="sidfot-brand">
+                <span class="sidfot-logo">RC.</span>
+                <p class="sidfot-text">
+                    © 2026 Rares Chisluca · Digital Marketing Specialist, IHM Business School i Göteborg.
+                </p>
+                <p class="sidfot-sub">Handkodad med HTML5, CSS3 och modern Vanilla JavaScript.</p>
+            </div>
+
+            <nav class="sidfot-nav" aria-label="Sidfotsmeny">
+                <a href="#start">Start</a>
+                <a href="#om">Om mig</a>
+                <a href="#tjanster">Vad jag gör</a>
+                <a href="#utbildning">Min utbildning</a>
+                <a href="#cv">Mitt CV</a>
+                <a href="cv-hemsida/index.html" target="_blank" rel="noopener">Öppna mitt CV ↗</a>
+                <a href="cv-hemsida/index.html" target="_blank" rel="noopener">Läs mitt CV ↗</a>
+                <a href="#kontakt">Kontakt</a>
+                <a href="#sidhuvud" class="sidfot-till-toppen">Till toppen ↑</a>
+            </nav>
+        </div>
     </footer>
 </body>
 

@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdfbf7"/>
+      <stop offset="100%" stop-color="#f0eae0"/>
+    </linearGradient>
+    <filter id="cardShadow2" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#141a29" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#bgGrad2)"/>
+
+  <!-- Geometric accent lines -->
+  <g fill="#1059c2">
+    <rect x="40" y="30" width="36" height="5" rx="2.5" opacity="0.3"/>
+    <rect x="40" y="40" width="56" height="5" rx="2.5" opacity="0.3"/>
+    <rect x="40" y="50" width="28" height="5" rx="2.5" opacity="0.3"/>
+  </g>
+  <circle cx="530" cy="330" r="40" fill="#f5a623" opacity="0.2"/>
+
+  <!-- Calendar Planner Mockup Board -->
+  <g transform="translate(50, 40)" filter="url(#cardShadow2)">
+    <rect width="500" height="320" rx="16" fill="#ffffff" stroke="#e3ded5" stroke-width="1.5"/>
+
+    <!-- Planner Header -->
+    <rect width="500" height="52" rx="16" fill="#1059c2"/>
+    <rect y="36" width="500" height="16" fill="#1059c2"/>
+    <text x="24" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">📅 Innehållsplan · Hållbar Kaffeprenumeration</text>
+    <text x="375" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#f5a623">12 Inlägg / Mån</text>
+
+    <!-- Content Pillars / Pelare -->
+    <g transform="translate(24, 68)">
+      <rect x="0" y="0" width="138" height="26" rx="6" fill="#e8f0fe"/>
+      <text x="12" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#1059c2">🌱 Pelare 1: Ursprung</text>
+
+      <rect x="154" y="0" width="144" height="26" rx="6" fill="#fef4e5"/>
+      <text x="166" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#b06500">☕ Pelare 2: Smakguide</text>
+
+      <rect x="314" y="0" width="138" height="26" rx="6" fill="#e6f7ec"/>
+      <text x="326" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#0d7a3e">📦 Pelare 3: Erbjudande</text>
+    </g>
+
+    <!-- Calendar Grid Simulation -->
+    <!-- Column headers -->
+    <g transform="translate(24, 110)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#5f6368">
+      <text x="35" y="0" text-anchor="middle">VECKA 1</text>
+      <text x="150" y="0" text-anchor="middle">VECKA 2</text>
+      <text x="265" y="0" text-anchor="middle">VECKA 3</text>
+      <text x="385" y="0" text-anchor="middle">VECKA 4</text>
+    </g>
+
+    <!-- Post cards in columns -->
+    <g transform="translate(24, 122)">
+      <!-- Week 1 posts -->
+      <g transform="translate(0, 0)">
+        <rect width="105" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="16" cy="16" r="4" fill="#e1306c"/>
+        <text x="26" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#334155">Instagram Reel</text>
+        <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#64748b">Från böna till kopp</text>
+
+        <rect y="60" width="105" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="16" cy="76" r="4" fill="#0077b5"/>
+        <text x="26" y="79" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#334155">LinkedIn Post</text>
+        <text x="12" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#64748b">Klimatsmarta val</text>
+      </g>
+
+      <!-- Week 2 posts -->
+      <g transform="translate(115, 0)">
+        <rect width="105" height="52" rx="8" fill="#fef9ee" stroke="#fed7aa"/>
+        <circle cx="16" cy="16" r="4" fill="#e1306c"/>
+        <text x="26" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#9a3412">Karusellinlägg</text>
+        <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#7c2d12">Hur du brygger rätt</text>
+
+        <rect y="60" width="105" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="16" cy="76" r="4" fill="#e1306c"/>
+        <text x="26" y="79" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#334155">Story Q&amp;A</text>
+        <text x="12" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#64748b">Frågor om rostning</text>
+      </g>
+
+      <!-- Week 3 posts -->
+      <g transform="translate(230, 0)">
+        <rect width="105" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="16" cy="16" r="4" fill="#e1306c"/>
+        <text x="26" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#334155">Reel Tutorial</text>
+        <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#64748b">Latte art hemma</text>
+
+        <rect y="60" width="105" height="52" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+        <circle cx="16" cy="76" r="4" fill="#2563eb"/>
+        <text x="26" y="79" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#1e40af">E-postkampanj</text>
+        <text x="12" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#1e3a8a">Månadens kafferost</text>
+      </g>
+
+      <!-- Week 4 posts -->
+      <g transform="translate(345, 0)">
+        <rect width="105" height="52" rx="8" fill="#f0fdf4" stroke="#bbf7d0"/>
+        <circle cx="16" cy="16" r="4" fill="#16a34a"/>
+        <text x="26" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#166534">Prenumerations-CTA</text>
+        <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#14532d">Första påsen fri frakt</text>
+
+        <rect y="60" width="105" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <circle cx="16" cy="76" r="4" fill="#e1306c"/>
+        <text x="26" y="79" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#334155">Kundrecensioner</text>
+        <text x="12" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#64748b">UGC &amp; citat</text>
+      </g>
+    </g>
+
+    <!-- Bottom summary status -->
+    <rect x="24" y="260" width="452" height="40" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="40" y="285" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#334155">Kanaler: Instagram, LinkedIn &amp; E-post · Målgrupp: Kaffeentusiaster &amp; miljömedvetna</text>
+  </g>
+</svg>

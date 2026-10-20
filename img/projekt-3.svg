@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdfbf7"/>
+      <stop offset="100%" stop-color="#ede7db"/>
+    </linearGradient>
+    <filter id="shadow3" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#141a29" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#bgGrad3)"/>
+
+  <!-- Geometric elements -->
+  <circle cx="80" cy="80" r="50" fill="#1059c2" opacity="0.15"/>
+  <rect x="500" y="40" width="50" height="8" rx="4" fill="#f5a623" opacity="0.5"/>
+  <rect x="480" y="55" width="70" height="8" rx="4" fill="#f5a623" opacity="0.5"/>
+  <rect x="520" y="70" width="30" height="8" rx="4" fill="#f5a623" opacity="0.5"/>
+
+  <!-- Desktop Browser Mockup in background -->
+  <g transform="translate(60, 45)" filter="url(#shadow3)">
+    <rect width="360" height="280" rx="14" fill="#ffffff" stroke="#e3ded5" stroke-width="1.5"/>
+    <rect width="360" height="34" rx="14" fill="#f1f3f5"/>
+    <rect y="22" width="360" height="12" fill="#f1f3f5"/>
+    <circle cx="18" cy="17" r="4" fill="#ff5f56"/>
+    <circle cx="30" cy="17" r="4" fill="#ffbd2e"/>
+    <circle cx="42" cy="17" r="4" fill="#27c93f"/>
+    <rect x="60" y="8" width="220" height="18" rx="9" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+    <text x="75" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#5f6368">rareschisluca.se</text>
+
+    <!-- Mini webpage layout -->
+    <text x="24" y="65" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="900" fill="#1059c2">RC<tspan fill="#f5a623">.</tspan></text>
+    <text x="24" y="95" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">Rares Chisluca</text>
+    <text x="24" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#1059c2">Digital Marketing Specialist</text>
+    <text x="24" y="132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" fill="#64748b">Hjälper små företag att synas online.</text>
+
+    <!-- Buttons -->
+    <rect x="24" y="148" width="70" height="22" rx="5" fill="#1059c2"/>
+    <text x="34" y="162" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold" fill="#ffffff">Projekt ↗</text>
+
+    <rect x="100" y="148" width="60" height="22" rx="5" fill="#f5a623"/>
+    <text x="112" y="162" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold" fill="#1e2430">Mitt CV</text>
+
+    <!-- Code badges -->
+    <g transform="translate(24, 200)">
+      <rect x="0" y="0" width="70" height="20" rx="4" fill="#e0f2fe"/>
+      <text x="8" y="14" font-family="monospace" font-size="9" font-weight="bold" fill="#0369a1">HTML5</text>
+
+      <rect x="78" y="0" width="60" height="20" rx="4" fill="#fef3c7"/>
+      <text x="86" y="14" font-family="monospace" font-size="9" font-weight="bold" fill="#92400e">CSS3</text>
+
+      <rect x="146" y="0" width="80" height="20" rx="4" fill="#f3e8ff"/>
+      <text x="154" y="14" font-family="monospace" font-size="9" font-weight="bold" fill="#6b21a8">JavaScript</text>
+    </g>
+  </g>
+
+  <!-- Mobile View Mockup in foreground -->
+  <g transform="translate(360, 80)" filter="url(#shadow3)">
+    <!-- Phone body -->
+    <rect width="180" height="285" rx="24" fill="#1e293b" stroke="#0f172a" stroke-width="3"/>
+    <rect x="6" y="6" width="168" height="273" rx="18" fill="#ffffff"/>
+
+    <!-- Dynamic Island / Speaker notch -->
+    <rect x="65" y="12" width="50" height="8" rx="4" fill="#0f172a"/>
+
+    <!-- Mobile Screen Content -->
+    <g transform="translate(18, 32)">
+      <text x="0" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="900" fill="#1059c2">RC<tspan fill="#f5a623">.</tspan></text>
+      <!-- Hamburger -->
+      <line x1="120" y1="10" x2="134" y2="10" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+      <line x1="120" y1="14" x2="134" y2="14" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+      <line x1="120" y1="18" x2="134" y2="18" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+
+      <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">Rares Chisluca</text>
+      <text x="0" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="600" fill="#1059c2">Digital Marketing</text>
+
+      <rect x="0" y="72" width="134" height="20" rx="5" fill="#1059c2"/>
+      <text x="35" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold" fill="#ffffff">Se mina projekt</text>
+
+      <rect x="0" y="98" width="134" height="20" rx="5" fill="#f5a623"/>
+      <text x="44" y="111" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold" fill="#1e2430">Öppna CV</text>
+
+      <!-- Mini card -->
+      <rect x="0" y="130" width="134" height="60" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+      <text x="10" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold" fill="#0f172a">100% Responsiv</text>
+      <text x="10" y="162" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7" fill="#64748b">Optimerad för mobil,</text>
+      <text x="10" y="172" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7" fill="#64748b">surfplatta och desktop.</text>
+    </g>
+  </g>
+</svg>

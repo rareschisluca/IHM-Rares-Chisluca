@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdfbf7"/>
+      <stop offset="100%" stop-color="#f1ece1"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#141a29" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="600" height="400" fill="url(#bgGrad)"/>
+
+  <!-- Decorative geometric dots -->
+  <g fill="#1059c2" opacity="0.18">
+    <circle cx="48" cy="48" r="6"/>
+    <circle cx="72" cy="48" r="6"/>
+    <circle cx="96" cy="48" r="6"/>
+    <circle cx="48" cy="72" r="6"/>
+    <circle cx="72" cy="72" r="6"/>
+    <circle cx="96" cy="72" r="6"/>
+  </g>
+  <circle cx="540" cy="70" r="45" fill="#f5a623" opacity="0.25"/>
+
+  <!-- Main Google Business Card Mockup -->
+  <g transform="translate(60, 45)" filter="url(#cardShadow)">
+    <!-- White Card Base -->
+    <rect width="480" height="310" rx="16" fill="#ffffff" stroke="#e3ded5" stroke-width="1.5"/>
+
+    <!-- Browser bar / header -->
+    <rect width="480" height="42" rx="16" fill="#f8f9fa" stroke="#e3ded5" stroke-width="1"/>
+    <rect y="26" width="480" height="16" fill="#f8f9fa"/>
+    <circle cx="24" cy="21" r="5" fill="#ff5f56"/>
+    <circle cx="40" cy="21" r="5" fill="#ffbd2e"/>
+    <circle cx="56" cy="21" r="5" fill="#27c93f"/>
+
+    <!-- Search input simulation -->
+    <rect x="80" y="10" width="320" height="22" rx="11" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+    <text x="96" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#5f6368">☕ kafé göteborg haga</text>
+    <text x="375" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#1059c2" font-weight="bold">🔍</text>
+
+    <!-- Card Content -->
+    <!-- Business Name and Category -->
+    <text x="30" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="bold" fill="#202124">Kafé Haga Kvarn</text>
+    <text x="30" y="102" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#1059c2" font-weight="600">Kafé &amp; Hantverksbageri · Haga, Göteborg</text>
+
+    <!-- Rating -->
+    <g transform="translate(30, 114)">
+      <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="bold" fill="#e37400">4,9</text>
+      <!-- 5 stars -->
+      <path d="M36 2 L39 9 L47 9 L41 14 L43 21 L36 17 L29 21 L31 14 L25 9 L33 9 Z" fill="#f5a623"/>
+      <path d="M54 2 L57 9 L65 9 L59 14 L61 21 L54 17 L47 21 L49 14 L43 9 L51 9 Z" fill="#f5a623"/>
+      <path d="M72 2 L75 9 L83 9 L77 14 L79 21 L72 17 L65 21 L67 14 L61 9 L69 9 Z" fill="#f5a623"/>
+      <path d="M90 2 L93 9 L101 9 L95 14 L97 21 L90 17 L83 21 L85 14 L79 9 L87 9 Z" fill="#f5a623"/>
+      <path d="M108 2 L111 9 L119 9 L113 14 L115 21 L108 17 L101 21 L103 14 L97 9 L105 9 Z" fill="#f5a623"/>
+      <text x="126" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#5f6368">(142 recensioner)</text>
+    </g>
+
+    <!-- Action buttons (Website, Directions, Save, Call) -->
+    <g transform="translate(30, 146)">
+      <rect x="0" y="0" width="76" height="30" rx="15" fill="#e8f0fe"/>
+      <text x="14" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#1059c2">🌐 Webb</text>
+
+      <rect x="84" y="0" width="82" height="30" rx="15" fill="#e8f0fe"/>
+      <text x="96" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#1059c2">📍 Vägbeskrivning</text>
+
+      <rect x="174" y="0" width="76" height="30" rx="15" fill="#e8f0fe"/>
+      <text x="190" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#1059c2">📞 Ring</text>
+    </g>
+
+    <!-- Details list -->
+    <g transform="translate(30, 200)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#3c4043">
+      <text x="0" y="0">📍 <tspan font-weight="500">Haga Nygata 18, 411 22 Göteborg</tspan></text>
+      <text x="0" y="24">🕒 <tspan fill="#188038" font-weight="bold">Öppet nu</tspan> · Stänger 18:00</text>
+      <text x="0" y="48">✨ <tspan fill="#5f6368">Populärt för: Ekologiskt kaffe, kardemummabullar, frukost</tspan></text>
+    </g>
+
+    <!-- Mini map / photo preview on the right -->
+    <g transform="translate(320, 75)">
+      <!-- Map card -->
+      <rect width="130" height="100" rx="8" fill="#e5eddf" stroke="#d5decb"/>
+      <!-- Roads -->
+      <path d="M 0 45 Q 65 40 130 55" stroke="#ffffff" stroke-width="8" fill="none"/>
+      <path d="M 50 0 L 70 100" stroke="#ffffff" stroke-width="6" fill="none"/>
+      <!-- Pin -->
+      <circle cx="65" cy="46" r="14" fill="#ea4335"/>
+      <circle cx="65" cy="44" r="5" fill="#ffffff"/>
+      <path d="M 57 52 L 65 64 L 73 52 Z" fill="#ea4335"/>
+
+      <!-- SEO Optimization Badge -->
+      <rect x="0" y="112" width="130" height="42" rx="8" fill="#f0f7ff" stroke="#cce0ff"/>
+      <text x="12" y="128" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold" fill="#1059c2">Lokal SEO Optimering</text>
+      <text x="12" y="144" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#28599e">Topp 3 på Google Maps</text>
+    </g>
+  </g>
+</svg>

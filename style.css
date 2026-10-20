@@ -1,0 +1,1988 @@
+/* ==========================================================================
+   RARES CHISLUCA - PORTFOLIO & CV WEBBPLATS
+   Modern, professionell och lättnavigerad webbplats
+   Inspirerad av färgpalett och asymmetrisk geometri från header.png
+   ========================================================================== */
+
+/* 1 · CSS Variabler och Designsystem */
+:root {
+    /* Färgpalett hämtad direkt ur header.png */
+    --farg-primar: #0b67b7;         /* Kungsblå hämtad direkt från cirkel och punktmatris i header.png */
+    --farg-primar-mork: #084c8d;
+    --farg-primar-ljus: #eaf2fc;
+    --farg-accent: #f5a623;         /* Varm bärnstensgul / solgul från stora rektangeln i header.png */
+    --farg-accent-hover: #e09415;
+    --farg-accent-ljus: #fff6e8;
+    
+    /* Neutrala färger med bevisad WCAG AAA/AA kontrast */
+    --farg-text: #141b26;           /* Djup skiffer för högsta läsbarhet */
+    --farg-text-dampad: #4a5568;    /* Tydlig sekundärtext */
+    --farg-bakgrund: #faf7f2;       /* Varm ljus crèmeton från bakgrunden i header.png */
+    --farg-yta: #ffffff;            /* Ren vit kortbakgrund */
+    --farg-yta-alt: #f4efe6;        /* Subtil dämpad sektionsyta */
+    --farg-kant: #e5ded0;           /* Gräns- och skiljelinjer */
+    --farg-knapptext-accent: #141b26;
+
+    /* Typografi */
+    --font-huvud: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    /* Layout & Mått */
+    --max-bredd: 74rem;             /* ~1184px */
+    --radie-sm: 8px;
+    --radie-md: 14px;
+    --radie-lg: 20px;
+    --radie-full: 9999px;
+
+    /* Skuggor med mjuk djupkänsla */
+    --skugga-subtil: 0 2px 10px rgba(20, 27, 38, 0.04);
+    --skugga-kort: 0 10px 28px -6px rgba(20, 27, 38, 0.08), 0 4px 8px -3px rgba(20, 27, 38, 0.03);
+    --skugga-lyft: 0 18px 36px -10px rgba(11, 103, 183, 0.22);
+    --skugga-accent: 0 10px 24px -6px rgba(245, 166, 35, 0.38);
+
+    /* Animationer */
+    --overgang-snabb: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    --overgang-mjuk: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mörkt läge: balanserad och vilsam nattpalett med bibehållen hög kontrast */
+body.morkt {
+    --farg-primar: #4d9eff;
+    --farg-primar-mork: #2b80f5;
+    --farg-primar-ljus: rgba(77, 158, 255, 0.16);
+    --farg-accent: #f7b334;
+    --farg-accent-hover: #fbbf24;
+    --farg-accent-ljus: rgba(247, 179, 52, 0.16);
+    
+    --farg-text: #f3f6fa;
+    --farg-text-dampad: #9aa5b6;
+    --farg-bakgrund: #0c111a;
+    --farg-yta: #151c2a;
+    --farg-yta-alt: #1b2435;
+    --farg-kant: #263347;
+    --farg-knapptext-accent: #0c111a;
+
+    --skugga-subtil: 0 2px 8px rgba(0, 0, 0, 0.35);
+    --skugga-kort: 0 10px 28px -6px rgba(0, 0, 0, 0.55);
+    --skugga-lyft: 0 18px 36px -10px rgba(77, 158, 255, 0.25);
+    --skugga-accent: 0 10px 24px -6px rgba(247, 179, 52, 0.35);
+}
+
+/* 2 · Global Reset & Grundstil */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-huvud);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--farg-text);
+    background-color: var(--farg-bakgrund);
+    transition: background-color var(--overgang-mjuk), color var(--overgang-mjuk);
+    overflow-x: hidden;
+}
+
+/* Tillgänglighetslänk för skärmläsare och tangentbord */
+.hoppa-till-innehall {
+    position: absolute;
+    top: -120px;
+    left: 1rem;
+    background: var(--farg-primar);
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    font-weight: 700;
+    border-radius: var(--radie-sm);
+    z-index: 9999;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.hoppa-till-innehall:focus {
+    top: 1rem;
+    outline: 3px solid var(--farg-accent);
+}
+
+/* Centrerad behållare */
+.behallare {
+    width: 100%;
+    max-width: var(--max-bredd);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Typografiska grundstilar */
+h1, h2, h3, h4 {
+    color: var(--farg-text);
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+p {
+    max-width: 68ch;
+    color: var(--farg-text-dampad);
+}
+
+a {
+    color: var(--farg-primar);
+    text-decoration: none;
+    transition: color var(--overgang-snabb);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--farg-primar);
+    outline-offset: 3px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 3 · Knappar och Interaktionskomponenter */
+.knapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 48px;
+    padding: 0.75rem 1.45rem;
+    font-size: 0.975rem;
+    font-weight: 700;
+    font-family: inherit;
+    border-radius: var(--radie-md);
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: transform var(--overgang-snabb),
+                box-shadow var(--overgang-snabb),
+                background-color var(--overgang-snabb),
+                border-color var(--overgang-snabb),
+                color var(--overgang-snabb);
+    user-select: none;
+    white-space: nowrap;
+}
+
+.knapp:active {
+    transform: translateY(1px) scale(0.99);
+}
+
+/* Blå primärknapp */
+.knapp-primar {
+    background-color: var(--farg-primar);
+    color: #ffffff !important;
+    box-shadow: 0 6px 16px rgba(13, 94, 204, 0.24);
+}
+
+.knapp-primar:hover {
+    background-color: var(--farg-primar-mork);
+    transform: translateY(-2px);
+    box-shadow: var(--skugga-lyft);
+    color: #ffffff;
+}
+
+/* Varm bärnstengul sekundärknapp för CV och nyckelåtgärder */
+.knapp-sekundar {
+    background-color: var(--farg-accent);
+    color: var(--farg-knapptext-accent) !important;
+    box-shadow: var(--skugga-accent);
+}
+
+.knapp-sekundar:hover {
+    background-color: var(--farg-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -6px rgba(245, 166, 35, 0.45);
+    color: var(--farg-knapptext-accent);
+}
+
+/* Tredje knapp: ren inramning */
+.knapp-tredje {
+    background-color: var(--farg-yta);
+    color: var(--farg-text) !important;
+    border-color: var(--farg-kant);
+    box-shadow: var(--skugga-subtil);
+}
+
+.knapp-tredje:hover {
+    background-color: var(--farg-primar-ljus);
+    border-color: var(--farg-primar);
+    color: var(--farg-primar) !important;
+    transform: translateY(-2px);
+}
+
+.knapp-fullbredd {
+    width: 100%;
+}
+
+.text-lank {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--farg-primar);
+    transition: transform var(--overgang-snabb);
+}
+
+.text-lank:hover {
+    transform: translateX(4px);
+    text-decoration: underline;
+}
+
+/* 4 · Sidhuvud och Sticky Navigation */
+.sidhuvud {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(250, 248, 245, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--farg-kant);
+    transition: background-color var(--overgang-mjuk), border-color var(--overgang-mjuk);
+}
+
+body.morkt .sidhuvud {
+    background-color: rgba(13, 18, 26, 0.92);
+}
+
+.sidhuvud-innehall {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+    gap: 1.5rem;
+}
+
+/* Varumärke och Monogram */
+.varumarke {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: var(--farg-text);
+}
+
+.logo-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--farg-primar);
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 900;
+    border-radius: var(--radie-md);
+    box-shadow: 0 4px 12px rgba(13, 94, 204, 0.28);
+    transition: transform var(--overgang-snabb);
+}
+
+.varumarke:hover .logo-symbol {
+    transform: scale(1.05) rotate(-3deg);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-namn {
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--farg-text);
+}
+
+.logo-titel {
+    font-size: 0.775rem;
+    font-weight: 600;
+    color: var(--farg-text-dampad);
+}
+
+/* Huvudnavigering */
+.huvudnav {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.nav-lista {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    list-style: none;
+}
+
+.nav-lank {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--farg-text);
+    border-radius: var(--radie-sm);
+    position: relative;
+    transition: color var(--overgang-snabb), background-color var(--overgang-snabb);
+}
+
+.nav-lank:hover {
+    color: var(--farg-primar);
+    background-color: var(--farg-primar-ljus);
+}
+
+.nav-lank.aktiv {
+    color: var(--farg-primar);
+    font-weight: 700;
+    background-color: var(--farg-primar-ljus);
+}
+
+.nav-lank-accent {
+    font-weight: 700;
+    color: var(--farg-primar);
+}
+
+/* Åtgärder: Temaväxlare & CTA */
+.nav-atgarder {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.tema-knapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 42px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--farg-text);
+    background-color: var(--farg-yta);
+    border: 1px solid var(--farg-kant);
+    border-radius: var(--radie-md);
+    cursor: pointer;
+    transition: all var(--overgang-snabb);
+}
+
+.tema-knapp:hover {
+    border-color: var(--farg-primar);
+    color: var(--farg-primar);
+    background-color: var(--farg-primar-ljus);
+}
+
+.knapp-huvudmeny {
+    min-height: 42px;
+    padding: 0.5rem 1.15rem;
+    font-size: 0.9rem;
+    background-color: var(--farg-primar);
+    color: #ffffff !important;
+}
+
+.knapp-huvudmeny:hover {
+    background-color: var(--farg-primar-mork);
+}
+
+/* Hamburgarmeny för mobiler */
+.mobilmeny-knapp {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    background: var(--farg-yta);
+    border: 1px solid var(--farg-kant);
+    border-radius: var(--radie-sm);
+    cursor: pointer;
+}
+
+.hamburgare-linje {
+    display: block;
+    width: 100%;
+    height: 2.5px;
+    background-color: var(--farg-text);
+    border-radius: 2px;
+    transition: transform var(--overgang-snabb), opacity var(--overgang-snabb);
+}
+
+/* 5 · FÖRSTA SKÄRMVYN: Hero med intro, synliga knappar och header.png */
+.hero-sektion {
+    position: relative;
+    padding: 4.5rem 0 4.5rem;
+    overflow: hidden;
+}
+
+.hero-innehall {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    align-items: center;
+    gap: 4rem;
+}
+
+/* Textkolumn */
+.hero-textkolumn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.plats-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--farg-primar);
+    background-color: var(--farg-primar-ljus);
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radie-full);
+    margin-bottom: 1.25rem;
+}
+
+.plats-prick {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--farg-primar);
+    box-shadow: 0 0 0 3px rgba(13, 94, 204, 0.25);
+}
+
+.hero-namn {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--farg-text);
+    margin-bottom: 0.25rem;
+}
+
+.hero-roll {
+    font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+    font-weight: 700;
+    color: var(--farg-primar);
+    margin-bottom: 1.25rem;
+}
+
+.hero-lofte {
+    font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--farg-text);
+    margin-bottom: 1.25rem;
+}
+
+.hero-ingress {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--farg-text-dampad);
+    margin-bottom: 2rem;
+    max-width: 58ch;
+}
+
+/* SYNLIGA KNAPPAR TILL PROJEKT, CV OCH KONTAKT */
+.hero-knappgrupp {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.hero-snabbfakta-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+}
+
+.chip {
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--farg-text-dampad);
+    background-color: var(--farg-yta);
+    border: 1px solid var(--farg-kant);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radie-full);
+}
+
+/* Grafikkolumn: Header-bilden med geometri */
+.hero-grafikkolumn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-grafikram {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    max-width: 540px;
+    background-color: var(--farg-yta);
+    border: 2px solid var(--farg-kant);
+    border-radius: var(--radie-lg);
+    padding: 0.75rem;
+    box-shadow: var(--skugga-kort);
+    transition: transform var(--overgang-mjuk), box-shadow var(--overgang-mjuk);
+}
+
+.hero-grafikram:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--skugga-lyft);
+}
+
+.hero-bild {
+    width: 100%;
+    height: auto;
+    border-radius: calc(var(--radie-lg) - 6px);
+    object-fit: cover;
+    background-color: #f7f2e9;
+}
+
+.hero-grafik-etikett {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0.6rem 0.3rem;
+}
+
+.etikett-titel {
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--farg-primar);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.etikett-sub {
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--farg-text-dampad);
+}
+
+/* Geometriska accenter runt header.png och över hela hemsidan */
+.dekor-cirkel-stor {
+    position: absolute;
+    top: -26px;
+    left: -26px;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background-color: var(--farg-primar);
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: -1;
+    box-shadow: 0 8px 24px rgba(11, 103, 183, 0.28);
+}
+
+.dekor-punkter {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    display: grid;
+    grid-template-columns: repeat(3, 9px);
+    gap: 9px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.dekor-punkter span {
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--farg-primar);
+    opacity: 0.9;
+}
+
+body.morkt .dekor-punkter span {
+    background-color: var(--farg-accent);
+}
+
+/* De tre horisontella ränderna hämtade direkt från header.png */
+.dekor-linjer {
+    position: absolute;
+    bottom: -18px;
+    left: -24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.dekor-linjer span {
+    display: block;
+    height: 8px;
+    background-color: var(--farg-primar);
+    border-radius: var(--radie-full);
+}
+
+.dekor-linjer span:nth-child(1) { width: 54px; }
+.dekor-linjer span:nth-child(2) { width: 40px; }
+.dekor-linjer span:nth-child(3) { width: 62px; }
+
+/* 6 · Snabböversiktsbar: Gör infon extremt lätt att hitta direkt */
+.snabb-oversikt-bar {
+    background-color: var(--farg-yta);
+    border-top: 1px solid var(--farg-kant);
+    border-bottom: 1px solid var(--farg-kant);
+    padding: 2.25rem 0;
+}
+
+.snabb-oversikt-rutnat {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.75rem;
+}
+
+.snabb-punkt {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.snabb-ikon {
+    font-size: 1.6rem;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radie-md);
+    background-color: var(--farg-primar-ljus);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.snabb-punkt strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--farg-text);
+}
+
+.snabb-punkt p {
+    font-size: 0.825rem;
+    line-height: 1.4;
+    color: var(--farg-text-dampad);
+    margin: 0;
+}
+
+/* 7 · Gemensam Sektionsstruktur med generös luft och modern typografi */
+.sektion {
+    padding: 6.75rem 0;
+    border-top: 1px solid var(--farg-kant);
+}
+
+.sektions-huvud {
+    margin-bottom: 3.5rem;
+}
+
+.sektions-huvud-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.sektions-etikett {
+    display: inline-block;
+    font-size: 0.825rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--farg-primar);
+    margin-bottom: 0.6rem;
+}
+
+.sektions-rubrik {
+    font-size: clamp(2rem, 3.6vw, 2.75rem);
+    font-weight: 900;
+    margin-bottom: 0.85rem;
+}
+
+.sektions-ingress {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--farg-text-dampad);
+    max-width: 60ch;
+}
+
+/* 8 · Om mig-sektion */
+.om-sektion {
+    background-color: var(--farg-yta);
+}
+
+.om-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4.5rem;
+    align-items: center;
+}
+
+.om-portratt-ram {
+    position: relative;
+    border-radius: var(--radie-lg);
+    background: var(--farg-primar-ljus);
+    padding: 0.85rem;
+    border: 2px solid var(--farg-kant);
+    box-shadow: var(--skugga-kort);
+}
+
+.om-profilbild {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: calc(var(--radie-lg) - 4px);
+}
+
+.profil-bricka {
+    position: absolute;
+    bottom: 1.75rem;
+    left: 1.75rem;
+    right: 1.75rem;
+    background: rgba(22, 28, 40, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    padding: 0.85rem 1.25rem;
+    border-radius: var(--radie-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profil-bricka-namn {
+    display: block;
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+.profil-bricka-titel {
+    font-size: 0.775rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.profil-bricka-stad {
+    font-size: 0.825rem;
+    color: var(--farg-accent);
+    font-weight: 700;
+}
+
+/* Geometriska accenter bakom porträttbilden som återspeglar header.png */
+.om-geo-block-gul {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 130px;
+    height: 130px;
+    background-color: var(--farg-accent);
+    border-radius: var(--radie-lg);
+    z-index: -2;
+    box-shadow: var(--skugga-accent);
+}
+
+.om-geo-cirkel-bla {
+    position: absolute;
+    top: -28px;
+    left: -28px;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: var(--farg-primar);
+    z-index: -1;
+    box-shadow: 0 8px 24px rgba(11, 103, 183, 0.28);
+}
+
+.om-geo-punkter {
+    position: absolute;
+    bottom: -18px;
+    right: 28px;
+    display: grid;
+    grid-template-columns: repeat(3, 8px);
+    gap: 8px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.om-geo-punkter span {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--farg-primar);
+}
+
+body.morkt .om-geo-punkter span {
+    background-color: var(--farg-accent);
+}
+
+.om-geo-linjer {
+    position: absolute;
+    bottom: 40px;
+    left: -26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.om-geo-linjer span {
+    display: block;
+    height: 7px;
+    background-color: var(--farg-primar);
+    border-radius: var(--radie-full);
+}
+
+.om-geo-linjer span:nth-child(1) { width: 44px; }
+.om-geo-linjer span:nth-child(2) { width: 32px; }
+.om-geo-linjer span:nth-child(3) { width: 50px; }
+
+.om-textkolumn .brodtext p {
+    font-size: 1.075rem;
+    margin-bottom: 1.2rem;
+}
+
+.om-textkolumn .ledtext {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--farg-text);
+    line-height: 1.6;
+}
+
+.kompetens-omrade {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--farg-kant);
+}
+
+.del-rubrik {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.9rem;
+    color: var(--farg-text);
+}
+
+.taggar-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.taggar-lista li {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--farg-primar);
+    background-color: var(--farg-primar-ljus);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radie-sm);
+    transition: transform var(--overgang-snabb);
+}
+
+.taggar-lista li:hover {
+    transform: translateY(-2px);
+}
+
+.snabb-fakta-kort {
+    background-color: var(--farg-bakgrund);
+    border: 1px solid var(--farg-kant);
+    border-radius: var(--radie-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.75rem;
+}
+
+.fakta-kolumn {
+    font-size: 0.925rem;
+    color: var(--farg-text);
+}
+
+.fakta-kolumn strong {
+    color: var(--farg-primar);
+    margin-right: 0.4rem;
+}
+
+.om-lankar-rad {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+}
+
+/* 9 · Vad jag gör / Det jag pluggar till (10 Fokusområden) */
+.tjanster-sektion {
+    background-color: var(--farg-bakgrund);
+}
+
+.tjanster-rutnat {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.75rem;
+}
+
+.tjanstekort {
+    position: relative;
+    background-color: var(--farg-yta);
+    border: 2px solid var(--farg-kant);
+    border-radius: var(--radie-lg);
+    padding: 1.85rem 1.65rem;
+    box-shadow: var(--skugga-subtil);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform var(--overgang-snabb),
+                box-shadow var(--overgang-snabb),
+                border-color var(--overgang-snabb);
+}
+
+.tjanstekort:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--skugga-lyft);
+    border-color: var(--farg-primar);
+}
+
+.tjanste-topp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.1rem;
+}
+
+.tjanste-ikon {
+    font-size: 1.75rem;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--farg-primar-ljus);
+    border-radius: var(--radie-md);
+    box-shadow: 0 4px 12px rgba(11, 103, 183, 0.12);
+}
+
+.tjanste-nummer {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--farg-primar);
+    background-color: var(--farg-primar-ljus);
+    padding: 0.2rem 0.65rem;
+    border-radius: var(--radie-full);
+}
+
+.tjanste-titel {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--farg-text);
+}
+
+.tjanste-beskrivning {
+    font-size: 0.925rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    color: var(--farg-text-dampad);
+    flex-grow: 1;
+}
+
+.tjanste-taggar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--farg-kant);
+}
+
+.tjanste-taggar span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--farg-primar);
+    background-color: var(--farg-primar-ljus);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radie-sm);
+}
+
+/* 10 · UTBILDNINGSSEKTION PÅ IHM (Kurser, Bauhaus-geometri & Färgpalett) */
+.utbildning-sektion {
+    background-color: var(--farg-yta);
+    position: relative;
+    overflow: hidden;
+}
+
+.sektions-huvud-utbildning {
+    position: relative;
+}
+
+.ihm-badge-ram {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+}
+
+.ihm-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.825rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 0.4rem 0.95rem;
+    border-radius: var(--radie-full);
+    background-color: var(--farg-accent);
+    color: var(--farg-knapptext-accent);
+    box-shadow: 0 4px 14px rgba(245, 166, 35, 0.32);
+}
+
+.ihm-ar-badge {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--farg-text-dampad);
+}
+
+/* Utbildningsrutnät: modernt, responsivt med gott om luft */
+.utbildning-rutnat {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 2.25rem;
+}
+
+/* Kurskort: Byggda med färger och geometri från header.png */
+.kurs-kort {
+    position: relative;
+    background-color: var(--farg-bakgrund);
+    border: 2px solid var(--farg-kant);
+    border-radius: var(--radie-lg);
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--skugga-subtil);
+    transition: transform var(--overgang-snabb),
+                box-shadow var(--overgang-snabb),
+                border-color var(--overgang-snabb);
+    overflow: hidden;
+}
+
+.kurs-kort:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--skugga-lyft);
+    border-color: var(--farg-primar);
+}
+
+/* Geometrisk topplist inspirerad av header.png (kungsblått och solgult block) */
+.kurs-kort::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--farg-primar) 0%, var(--farg-primar) 72%, var(--farg-accent) 72%, var(--farg-accent) 100%);
+}
+
+.kurs-topp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+/* Kursnummer med cirkulär form hämtad från header.png */
+.kurs-nummer-cirkel {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--farg-primar);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(11, 103, 183, 0.28);
+}
+
+.kurs-skola-tagg {
+    font-size: 0.775rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radie-full);
+    background-color: var(--farg-primar-ljus);
+    color: var(--farg-primar);
+}
+
+.kurs-rubrik {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--farg-text);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.kurs-del-rubrik {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--farg-primar);
+    margin-top: 0.85rem;
+    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.kurs-del-rubrik::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--farg-accent);
+}
+
+.kurs-beskrivning {
+    font-size: 0.975rem;
+    line-height: 1.65;
+    color: var(--farg-text);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.kurs-fokusomraden {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--farg-kant);
+}
+
+.kurs-tagg {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--farg-primar);
+    background-color: var(--farg-primar-ljus);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radie-sm);
+}
+
+/* Dekorativ geometrisk detalj i hörnet av kortet */
+.kurs-geo-dekor {
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    display: grid;
+    grid-template-columns: repeat(3, 6px);
+    gap: 6px;
+    opacity: 0.12;
+    pointer-events: none;
+    transition: opacity var(--overgang-snabb);
+}
+
+.kurs-kort:hover .kurs-geo-dekor {
+    opacity: 0.35;
+}
+
+.kurs-geo-dekor span {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--farg-accent);
+}
+
+/* Väntar-box i väntan på användarens kurslista */
+.kurs-vantar-box {
+    grid-column: 1 / -1;
+    position: relative;
+    background-color: var(--farg-bakgrund);
+    border: 2px dashed var(--farg-primar);
+    border-radius: var(--radie-lg);
+    padding: 3.5rem 2.25rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 760px;
+    margin: 0 auto;
+    box-shadow: var(--skugga-kort);
+}
+
+.kurs-vantar-ikon {
+    font-size: 2.75rem;
+    margin-bottom: 1.25rem;
+    background-color: var(--farg-primar-ljus);
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(11, 103, 183, 0.16);
+}
+
+.kurs-vantar-titel {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--farg-text);
+    margin-bottom: 0.75rem;
+}
+
+.kurs-vantar-text {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--farg-text-dampad);
+    max-width: 58ch;
+}
+
+/* 11 · CV-SEKTION: Det officiella CV:t med direktlänk till bilden */
+.cv-sektion {
+    background-color: var(--farg-yta-alt);
+}
+
+.cv-visning-container {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 3.5rem;
+    align-items: start;
+}
+
+/* Vänster: Klickbar bildförhandsgranskning */
+.cv-forhandsgranskning-kolumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.cv-bild-kort {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--farg-yta);
+    border: 2px solid var(--farg-kant);
+    border-radius: var(--radie-lg);
+    padding: 0.85rem;
+    box-shadow: var(--skugga-kort);
+    transition: transform var(--overgang-snabb), box-shadow var(--overgang-snabb), border-color var(--overgang-snabb);
+}
+
+.cv-bild-kort:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--skugga-lyft);
+    border-color: var(--farg-primar);
+    text-decoration: none;
+}
+
+.cv-bild-wrapper {
+    position: relative;
+    border-radius: calc(var(--radie-lg) - 6px);
+    overflow: hidden;
+    background-color: #0f141e;
+}
+
+.cv-bild-forhandsgranskning {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform var(--overgang-mjuk);
+}
+
+.cv-bild-kort:hover .cv-bild-forhandsgranskning {
+    transform: scale(1.02);
+}
+
+/* Hover-overlay som uppmuntrar till att klicka */
+.cv-klick-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 94, 204, 0.4);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--overgang-snabb);
+    padding: 1rem;
+    text-align: center;
+}
+
+.cv-bild-kort:hover .cv-klick-overlay {
+    opacity: 1;
+}
+
+.cv-klick-badge {
+    background-color: var(--farg-yta);
+    color: var(--farg-primar);
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radie-full);
+    box-shadow: var(--skugga-kort);
+}
+
+.cv-bild-undertext {
+    display: block;
+    text-align: center;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--farg-text-dampad);
+    margin-top: 0.75rem;
+}
+
+/* Höger: CV-panel & information */
+.cv-info-kolumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.cv-snabb-panel {
+    background-color: var(--farg-yta);
+    border: 1px solid var(--farg-kant);
+    border-radius: var(--radie-lg);
+    padding: 2.25rem 2rem;
+    box-shadow: var(--skugga-subtil);
+}
+
+.cv-panel-header {
+    margin-bottom: 1.25rem;
+}
+
+.cv-status-tagg {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--farg-primar);
+    background-color: var(--farg-primar-ljus);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radie-full);
+    margin-bottom: 0.65rem;
+}
+
+.cv-panel-namn {
+    font-size: 1.85rem;
+    font-weight: 900;
+    margin-bottom: 0.25rem;
+    color: var(--farg-text);
+}
+
+.cv-panel-roll {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--farg-primar);
+}
+
+.cv-panel-beskrivning {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--farg-text-dampad);
+    margin-bottom: 1.75rem;
+}
+
+.cv-knapp-grupp {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cv-fakta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.cv-fakta-post {
+    background-color: var(--farg-yta);
+    border: 1px solid var(--farg-kant);
+    border-radius: var(--radie-md);
+    padding: 1.25rem;
+    box-shadow: var(--skugga-subtil);
+}
+
+.cv-fakta-post strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--farg-primar);
+    margin-bottom: 0.4rem;
+}
+
+.cv-fakta-post p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--farg-text);
+    margin: 0;
+}
+
+/* 12 · Kontaktsektion */
+.kontakt-sektion {
+    background-color: var(--farg-bakgrund);
+}
+
+.kontakt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.kontakt-info-kort,
+.kontakt-formular-kort {
+    background-color: var(--farg-yta);
+    border: 1px solid var(--farg-kant);
+    border-radius: var(--radie-lg);
+    padding: 2.5rem;
+    box-shadow: var(--skugga-subtil);
+}
+
+.kontakt-del-rubrik {
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    color: var(--farg-text);
+}
+
+.kontakt-intro {
+    font-size: 1.025rem;
+    margin-bottom: 2rem;
+}
+
+.kontakt-uppgifter-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    margin-bottom: 2rem;
+}
+
+.kontakt-rad {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.15rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--farg-kant);
+}
+
+.kontakt-rad:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.kontakt-rad-ikon {
+    font-size: 1.4rem;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radie-md);
+    background-color: var(--farg-primar-ljus);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.kontakt-rad-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex-grow: 1;
+}
+
+.kontakt-rad-etikett {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--farg-text-dampad);
+}
+
+.kontakt-lank {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--farg-primar);
+    word-break: break-word;
+}
+
+.kontakt-lank:hover {
+    color: var(--farg-primar-mork);
+    text-decoration: underline;
+}
+
+.kontakt-vanlig-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--farg-text);
+}
+
+.epost-kopiera-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.kopiera-knapp {
+    font-family: inherit;
+    font-size: 0.775rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    color: var(--farg-primar);
+    background-color: var(--farg-primar-ljus);
+    border: 1px solid transparent;
+    border-radius: var(--radie-sm);
+    cursor: pointer;
+    transition: all var(--overgang-snabb);
+}
+
+.kopiera-knapp:hover {
+    background-color: var(--farg-accent);
+    color: var(--farg-knapptext-accent);
+}
+
+.kopiera-status {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #16a34a;
+}
+
+.kontakt-snabb-knappar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+/* Formulär */
+.kontakt-formular {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.formular-grupp {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.formular-grupp label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--farg-text);
+}
+
+.krav {
+    color: #dc2626;
+}
+
+.formular-grupp input,
+.formular-grupp select,
+.formular-grupp textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid var(--farg-kant);
+    border-radius: var(--radie-md);
+    background-color: var(--farg-bakgrund);
+    color: var(--farg-text);
+    transition: border-color var(--overgang-snabb), box-shadow var(--overgang-snabb);
+}
+
+.formular-grupp input:focus,
+.formular-grupp select:focus,
+.formular-grupp textarea:focus {
+    border-color: var(--farg-primar);
+    box-shadow: 0 0 0 3px var(--farg-primar-ljus);
+}
+
+.formular-hjalp {
+    font-size: 0.8rem;
+    color: var(--farg-text-dampad);
+    text-align: center;
+}
+
+.formular-status {
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.75rem;
+    border-radius: var(--radie-sm);
+    text-align: center;
+    display: none;
+}
+
+.formular-status.lyckades {
+    display: block;
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+/* 13 · Flytande Till-toppen knapp */
+.till-toppen-flytande {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--farg-primar);
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: var(--skugga-lyft);
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all var(--overgang-snabb);
+}
+
+.till-toppen-flytande.synlig {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.till-toppen-flytande:hover {
+    background-color: var(--farg-primar-mork);
+    transform: translateY(-3px);
+}
+
+/* 14 · Sidfot */
+.sidfot {
+    background-color: var(--farg-bakgrund);
+    border-top: 1px solid var(--farg-kant);
+    padding: 4rem 0;
+}
+
+.sidfot-innehall {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.sidfot-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.sidfot-logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--farg-primar);
+}
+
+.sidfot-text {
+    font-size: 0.925rem;
+    font-weight: 600;
+    color: var(--farg-text);
+}
+
+.sidfot-sub {
+    font-size: 0.825rem;
+    color: var(--farg-text-dampad);
+}
+
+.sidfot-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.sidfot-nav a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--farg-text-dampad);
+}
+
+.sidfot-nav a:hover {
+    color: var(--farg-primar);
+}
+
+.sidfot-till-toppen {
+    color: var(--farg-primar) !important;
+    font-weight: 700 !important;
+}
+
+/* 15 · Responsiv design för surfplattor och mobiler */
+@media (max-width: 992px) {
+    .hero-innehall {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .hero-grafikkolumn {
+        order: -1;
+    }
+
+    .hero-grafikram {
+        max-width: 100%;
+    }
+
+    .om-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .om-profilbild {
+        height: 380px;
+    }
+
+    .cv-layout-grid,
+    .cv-visning-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .cv-fakta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kontakt-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidhuvud-innehall {
+        min-height: 64px;
+    }
+
+    .mobilmeny-knapp {
+        display: flex;
+    }
+
+    .huvudnav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--farg-yta);
+        border-bottom: 2px solid var(--farg-kant);
+        box-shadow: var(--skugga-kort);
+        padding: 1.5rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+        display: none;
+    }
+
+    .huvudnav.oppen {
+        display: flex;
+    }
+
+    .nav-lista {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.4rem;
+    }
+
+    .nav-lank {
+        padding: 0.75rem 1rem;
+        font-size: 1.05rem;
+    }
+
+    .nav-atgarder {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--farg-kant);
+    }
+
+    .tema-knapp {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .knapp-huvudmeny {
+        width: 100%;
+    }
+
+    .hero-sektion {
+        padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-knappgrupp {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-knappgrupp .knapp {
+        width: 100%;
+    }
+
+    .sektion {
+        padding: 4.5rem 0;
+    }
+
+    .utbildning-rutnat {
+        grid-template-columns: 1fr;
+    }
+
+    .dekor-cirkel-stor {
+        width: 60px;
+        height: 60px;
+        left: -10px;
+        top: -10px;
+    }
+
+    .dekor-linjer {
+        left: -8px;
+        bottom: -10px;
+    }
+
+    .om-geo-block-gul {
+        width: 80px;
+        height: 80px;
+        right: -8px;
+        top: -10px;
+    }
+
+    .om-geo-cirkel-bla {
+        width: 50px;
+        height: 50px;
+        left: -8px;
+        top: -10px;
+    }
+
+    .om-geo-linjer {
+        left: -8px;
+    }
+
+    .kontakt-info-kort,
+    .kontakt-formular-kort {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .sidfot-innehall {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+}
+
+/* 16 · Respektera reducerad rörelse */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* Luftig kurslista */
+.kurslista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.kurslista .kurs-beskrivning {
+    margin-bottom: 0;
+}
+
+/* LIA lyfts fram bredvid introduktionen, utan bild eller färgdekorationer. */
+.lia-kort {
+    padding: clamp(1.75rem, 4vw, 3rem);
+    border: 1px solid var(--farg-kant);
+    border-radius: var(--radie-lg);
+    background: var(--farg-yta);
+    box-shadow: var(--skugga-kort);
+}
+
+.lia-etikett {
+    margin-bottom: 1.25rem;
+    color: var(--farg-text-dampad);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.lia-kort h2 {
+    font-size: clamp(1.8rem, 3.4vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+}
+
+.lia-period {
+    margin-top: 1.5rem;
+    padding-block: 1.25rem;
+    border-block: 1px solid var(--farg-kant);
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.lia-text {
+    margin-top: 1.25rem;
+    color: var(--farg-text-dampad);
+    line-height: 1.7;
+}
+
+.lia-kontakt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1.75rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radie-sm);
+    background: var(--farg-text);
+    color: var(--farg-bakgrund);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.lia-kontakt:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+@media (max-width: 992px) {
+    .lia-kort {
+        order: -1;
+    }
+}
+
+/* CV-översikten använder hela bredden utan den privata CV-bilden. */
+.cv-visning-container { grid-template-columns: 1fr; }
